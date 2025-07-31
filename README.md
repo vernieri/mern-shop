@@ -1,2 +1,2 @@
 # mern-shop
-MERN shop eccomerce
+MERN shop E-commerce
