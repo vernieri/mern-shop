@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductCard from '../components/ProductCard';
+import { Link } from 'react-router-dom';
+
+<Link to="/cart">🛒 Carrinho</Link>
 
 function Home() {
   const [products, setProducts] = useState([]);
