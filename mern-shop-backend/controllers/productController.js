@@ -1,5 +1,8 @@
 import Product from '../models/Product.js';
 
+
+
+
 // Listar todos os produtos
 export const getAllProducts = async (req, res) => {
   try {
@@ -12,15 +15,25 @@ export const getAllProducts = async (req, res) => {
 
 // Criar novo produto
 export const createProduct = async (req, res) => {
+//console.log('Usuário autenticado:', req.user);  
   try {
     const { name, description, price, image } = req.body;
-    const newProduct = new Product({ name, description, price, image });
+
+    const newProduct = new Product({
+      name,
+      description,
+      price,
+      image,
+      user: req.user._id,  // << AQUI
+    });
+
     await newProduct.save();
     res.status(201).json(newProduct);
   } catch (err) {
     res.status(400).json({ message: 'Erro ao criar produto' });
   }
 };
+
 
 // Buscar produto por ID
 export const getProductById = async (req, res) => {
@@ -55,3 +68,4 @@ export const deleteProduct = async (req, res) => {
     res.status(500).json({ message: 'Erro ao remover produto' });
   }
 };
+
