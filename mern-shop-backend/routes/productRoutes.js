@@ -14,8 +14,8 @@ const router = express.Router();
 router.get('/', getAllProducts);
 //router.post('/', createProduct);
 router.get('/:id', getProductById);
-router.put('/:id', updateProduct);
-router.delete('/:id', deleteProduct);
+router.put('/:id', protect, updateProduct);
+router.delete('/:id', protect, deleteProduct);
 router.post('/', protect, createProduct); // << agora só logado pode criar
 
 export default router;
