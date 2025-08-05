@@ -5,6 +5,10 @@ import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { useAuth } from './context/AuthContext';
+import Profile from './pages/Profile';
+import PrivateRoute from './components/PrivateRoute';
+
+
 
 function App() {
   const { user, logout } = useAuth();
@@ -25,6 +29,8 @@ function App() {
             <Link to="/register">Registrar</Link>
           </>
         )}
+        {user && <Link to="/profile">Área logada</Link>}
+
       </header>
 
       <Routes>
@@ -33,6 +39,18 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        {/* Rota protegida */}
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />        
+
+
+
       </Routes>
     </Router>
   );
