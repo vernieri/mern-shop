@@ -15,13 +15,10 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>Produtos</h1>
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-        {products.map(product => (
-          <ProductCard key={product._id} product={product} />
-        ))}
-      </div>
+    <div className="product-grid">
+      {products.map(product => (
+        <ProductCard key={product._id} product={product} />
+      ))}
     </div>
   );
 }
