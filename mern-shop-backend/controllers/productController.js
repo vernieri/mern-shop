@@ -47,25 +47,46 @@ export const getProductById = async (req, res) => {
 // Atualizar produto
 export const updateProduct = async (req, res) => {
   try {
-    const updates = req.body;
-    const product = await Product.findByIdAndUpdate(req.params.id, updates, { new: true });
+    const product = await Product.findById(req.params.id);
+
     if (!product) return res.status(404).json({ message: 'Produto não encontrado' });
-    res.json(product);
-  } catch (err) {
+
+    // ⚠️ Verifica se o produto pertence ao usuário logado
+    if (product.user.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Acesso negado: este produto não é seu' });
+    }
+
+    // Aplica updates
+    const updates = req.body;
+    Object.assign(product, updates);
+
+    const updated = await product.save();
+    res.json(updated);
+  } catch {
     res.status(400).json({ message: 'Erro ao atualizar produto' });
   }
 };
 
+
 // Deletar produto
 export const deleteProduct = async (req, res) => {
   try {
-    const deleted = await Product.findByIdAndDelete(req.params.id);
-    if (!deleted) return res.status(404).json({ message: 'Produto não encontrado' });
+    const product = await Product.findById(req.params.id);
+
+    if (!product) return res.status(404).json({ message: 'Produto não encontrado' });
+
+    // ⚠️ Verifica se o produto pertence ao usuário logado
+    if (product.user.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Acesso negado: este produto não é seu' });
+    }
+
+    await product.deleteOne();
     res.json({ message: 'Produto removido com sucesso' });
-  } catch (err) {
+  } catch {
     res.status(500).json({ message: 'Erro ao remover produto' });
   }
 };
+
 
 export const getMyProducts = async (req, res) => {
   try {
