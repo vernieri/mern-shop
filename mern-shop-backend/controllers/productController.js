@@ -1,8 +1,6 @@
 import Product from '../models/Product.js';
 
 
-
-
 // Listar todos os produtos
 export const getAllProducts = async (req, res) => {
   try {
@@ -69,3 +67,11 @@ export const deleteProduct = async (req, res) => {
   }
 };
 
+export const getMyProducts = async (req, res) => {
+  try {
+    const products = await Product.find({ user: req.user._id });
+    res.json(products);
+  } catch {
+    res.status(500).json({ message: 'Erro ao buscar seus produtos' });
+  }
+};
