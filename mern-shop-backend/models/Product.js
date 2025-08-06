@@ -10,8 +10,17 @@ const productSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
+  reviews: [
+    {
+      user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+      name: String,
+      comment: String,
+      createdAt: { type: Date, default: Date.now },
+    }
+  ]
 }, {
   timestamps: true,
 });
+
 
 export default mongoose.model('Product', productSchema);
