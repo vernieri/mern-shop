@@ -139,5 +139,65 @@ senha: admin
 
 ---
 
-## 📸 Prints e demonstrações
+## 🐳 Docker & Docker Compose
 
+### ▶️ Requisitos
+
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+
+---
+
+### ▶️ Build e execução
+
+Na raiz do projeto (`mern-shop/`), execute:
+
+```bash
+docker-compose up --build
+```
+
+Esse comando irá:
+
+- Subir o MongoDB na porta `27017`
+- Iniciar o backend (Node + Express) na porta `5000`
+- Iniciar o frontend (Vite + React) na porta `5173`
+
+---
+
+### 🛠️ Estrutura de containers
+
+```yaml
+services:
+  mongo:
+    image: mongo
+    ports: [ "27017:27017" ]
+
+  backend:
+    build: ./mern-shop-backend
+    ports: [ "5000:5000" ]
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/mernshop
+      - JWT_SECRET=sua_chave
+      - PORT=5000
+
+  frontend:
+    build: ./mern-shop-frontend
+    ports: [ "5173:5173" ]
+    environment:
+      - VITE_BACKEND_URL=http://localhost:5000
+```
+
+---
+
+### 🌐 Acessos rápidos
+
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:5000/api/products
+- MongoDB: mongodb://localhost:27017 (via MongoDB Compass)
+
+---
+
+### 💡 Dicas
+
+- Se alterar código: `Ctrl + C` e `docker-compose up --build` novamente
+- Para limpar tudo: `docker-compose down -v`
