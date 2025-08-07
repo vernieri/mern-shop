@@ -141,4 +141,3 @@ senha: admin
 
 ## 📸 Prints e demonstrações
 
-Adicione aqui imagens da interface e demonstrações se desejar.
