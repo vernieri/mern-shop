@@ -41,9 +41,20 @@ function Cart() {
         </ul>
       )}
 
+
+
       <h3>Total: R$ {total.toFixed(2)}</h3>
+
+      {cart.items.length > 0 && (
+        <div style={{ marginTop: '1rem' }}>
+          <Link to="/checkout">
+            <button>Finalizar Compra</button>
+          </Link>
+        </div>
+      )}
     </div>
   );
+
 }
 
 export default Cart;
