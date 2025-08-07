@@ -7,6 +7,7 @@ import Register from './pages/Register';
 import { useAuth } from './context/AuthContext';
 import Profile from './pages/Profile';
 import PrivateRoute from './components/PrivateRoute';
+import Checkout from './pages/Checkout';
 
 
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/checkout" element={<Checkout />} />
         {/* Rota protegida */}
         <Route
           path="/profile"
