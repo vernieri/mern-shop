@@ -1,4 +1,4 @@
-# 🛍️ MERN Shop
+## 🛍️ MERN Shop
 
 Fullstack e-commerce application developed with the **MERN** stack (MongoDB, Express, React, Node.js).  
 The system allows listing, registering, and managing products, performing login/registration, adding items to the cart, leaving comments, and completing checkout.
