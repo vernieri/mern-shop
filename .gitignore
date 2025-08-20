@@ -1,2 +1,51 @@
+
 node_modules/
 .vite/
+
+# =====================
+# Go
+# =====================
+# Binários compilados
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Pasta bin
+/bin/
+/build/
+
+# Cache do Go
+*.log
+*.tmp
+*.cache
+
+# Banco de dados (SQLite)
+*.db
+orgchart.db
+
+# =====================
+# Node / Vite (frontend web/)
+# =====================
+web/node_modules/
+web/dist/
+web/.vite/
+
+# Arquivos de lock opcionais
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# =====================
+# Sistema / Editor
+# =====================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.idea/
+.vscode/
+
