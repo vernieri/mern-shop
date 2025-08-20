@@ -1,0 +1,4 @@
+curl -X POST http://localhost:5000/api/products \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTBmNGZjY2VkOTcyODQ5NmRiMmMwZCIsImlhdCI6MTc1NDQxNTE5MiwiZXhwIjoxNzU1MDE5OTkyfQ.gvGK4WsFZV6_Ay8juth8yvX-EkWzWsZomZjoQS2SmSE" \
+  -d '{"name":"Produto Novo","price":99.99,"description":"Exemplo","image":"https://picsum.photos/200"}'

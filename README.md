@@ -1,128 +1,128 @@
 # 🛍️ MERN Shop
 
-Aplicação fullstack de e-commerce desenvolvida com a stack **MERN** (MongoDB, Express, React e Node.js).  
-O sistema permite listar, cadastrar e gerenciar produtos, realizar login/cadastro, adicionar itens ao carrinho, deixar comentários e realizar checkout.
+Fullstack e-commerce application developed with the **MERN** stack (MongoDB, Express, React, Node.js).  
+The system allows listing, registering, and managing products, performing login/registration, adding items to the cart, leaving comments, and completing checkout.
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 mern-shop/
-├── mern-shop-frontend/     # Aplicação React (Vite)
-├── mern-shop-backend/      # API Node.js + Express
+├── mern-shop-frontend/     # React application (Vite)
+├── mern-shop-backend/      # Node.js + Express API
 ```
 
 ---
 
 ## 📦 Backend (`mern-shop-backend`)
 
-### ▶️ Instalação
+### ▶️ Installation
 
 ```bash
 cd mern-shop-backend
 npm install
 ```
 
-### ▶️ Executar o servidor
+### ▶️ Run the server
 
 ```bash
 npm run dev
 ```
 
-### 🔐 Variáveis de ambiente
+### 🔐 Environment Variables
 
-Crie um `.env` com:
+Create a `.env` file with:
 
 ```env
 MONGO_URI=mongodb://localhost:27017/mernshop
-JWT_SECRET=sua_chave_secreta
+JWT_SECRET=your_secret_key
 PORT=5000
 ```
 
-### 📌 Rotas da API
+### 📌 API Routes
 
-#### 🔐 Autenticação
+#### 🔐 Authentication
 
-| Método | Rota                  | Descrição                    |
-|--------|------------------------|------------------------------|
-| POST   | `/api/users/register` | Cadastrar novo usuário       |
-| POST   | `/api/users/login`    | Login e retorno do JWT       |
+| Method | Route                | Description              |
+|--------|----------------------|--------------------------|
+| POST   | `/api/users/register` | Register a new user      |
+| POST   | `/api/users/login`    | Login and return JWT     |
 
-#### 📦 Produtos
+#### 📦 Products
 
-| Método | Rota                          | Descrição                              |
-|--------|-------------------------------|----------------------------------------|
-| GET    | `/api/products`              | Listar todos os produtos               |
-| POST   | `/api/products`              | Criar produto (autenticado)            |
-| GET    | `/api/products/mine`         | Listar produtos do usuário logado      |
-| GET    | `/api/products/:id`          | Buscar produto por ID                  |
-| PUT    | `/api/products/:id`          | Atualizar produto (dono)               |
-| DELETE | `/api/products/:id`          | Excluir produto (dono)                 |
+| Method | Route                        | Description                     |
+|--------|-------------------------------|---------------------------------|
+| GET    | `/api/products`              | List all products               |
+| POST   | `/api/products`              | Create product (authenticated)  |
+| GET    | `/api/products/mine`         | List products of logged user    |
+| GET    | `/api/products/:id`          | Get product by ID               |
+| PUT    | `/api/products/:id`          | Update product (owner)          |
+| DELETE | `/api/products/:id`          | Delete product (owner)          |
 
-#### 💬 Comentários
+#### 💬 Reviews
 
-| Método | Rota                                | Descrição                       |
-|--------|--------------------------------------|---------------------------------|
-| GET    | `/api/products/:id/reviews`         | Listar comentários de produto   |
-| POST   | `/api/products/:id/reviews`         | Criar comentário (autenticado)  |
+| Method | Route                                | Description                |
+|--------|--------------------------------------|----------------------------|
+| GET    | `/api/products/:id/reviews`         | List product reviews       |
+| POST   | `/api/products/:id/reviews`         | Create review (authenticated) |
 
 ---
 
 ## 💻 Frontend (`mern-shop-frontend`)
 
-### ▶️ Instalação
+### ▶️ Installation
 
 ```bash
 cd mern-shop-frontend
 npm install
 ```
 
-### ▶️ Executar a aplicação
+### ▶️ Run the application
 
 ```bash
 npm run dev
 ```
 
-### 🌐 Funcionalidades
+### 🌐 Features
 
-- ✅ Listagem de produtos na página inicial
-- ✅ Página de detalhe do produto
-- ✅ Carrinho de compras
-- ✅ Checkout com resumo + endereço
-- ✅ Comentários por produto
-- ✅ Login / Cadastro
-- ✅ Área logada (/profile) com:
-  - CRUD de produtos
-  - Lista de produtos do usuário
-- ✅ Proteção de rotas com JWT
-- ✅ Estilização com CSS puro
-
----
-
-## 🧪 Tecnologias utilizadas
-
-- React 19 (Vite)
-- Node.js
-- Express
-- MongoDB (Mongoose)
-- JSON Web Token (JWT)
-- CSS puro (sem Tailwind)
+- ✅ Product listing on homepage  
+- ✅ Product detail page  
+- ✅ Shopping cart  
+- ✅ Checkout with summary + address  
+- ✅ Product reviews  
+- ✅ Login / Registration  
+- ✅ Authenticated area (/profile) with:  
+  - Product CRUD  
+  - User’s product list  
+- ✅ Route protection with JWT  
+- ✅ Styling with pure CSS  
 
 ---
 
-## 🚀 Futuras melhorias
+## 🧪 Technologies Used
 
-- 💳 Integração com gateway de pagamento
-- ⭐ Sistema de avaliações com estrelas
-- 📦 Tela de pedidos do usuário
-- ☁️ Deploy com MongoDB Atlas + Render
+- React 19 (Vite)  
+- Node.js  
+- Express  
+- MongoDB (Mongoose)  
+- JSON Web Token (JWT)  
+- Pure CSS (no Tailwind)  
 
 ---
 
-## 🔒 Autorizações
+## 🚀 Future Improvements
 
-Algumas rotas são protegidas por middleware `protect` que exige JWT válido no header:
+- 💳 Payment gateway integration  
+- ⭐ Star rating system  
+- 📦 User orders page  
+- ☁️ Deployment with MongoDB Atlas + Render  
+
+---
+
+## 🔒 Authorization
+
+Some routes are protected by `protect` middleware that requires a valid JWT in the header:
 
 ```http
 Authorization: Bearer <token>
@@ -130,41 +130,41 @@ Authorization: Bearer <token>
 
 ---
 
-## 👤 Usuário de teste
+## 👤 Test User
 
 ```
 email: admin@email.com
-senha: admin
+password: admin
 ```
 
 ---
 
 ## 🐳 Docker & Docker Compose
 
-### ▶️ Requisitos
+### ▶️ Requirements
 
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
+- [Docker](https://www.docker.com/)  
+- [Docker Compose](https://docs.docker.com/compose/)  
 
 ---
 
-### ▶️ Build e execução
+### ▶️ Build & Run
 
-Na raiz do projeto (`mern-shop/`), execute:
+At the project root (`mern-shop/`), run:
 
 ```bash
 docker-compose up --build
 ```
 
-Esse comando irá:
+This will:
 
-- Subir o MongoDB na porta `27017`
-- Iniciar o backend (Node + Express) na porta `5000`
-- Iniciar o frontend (Vite + React) na porta `5173`
+- Start MongoDB on port `27017`  
+- Start backend (Node + Express) on port `5000`  
+- Start frontend (Vite + React) on port `5173`  
 
 ---
 
-### 🛠️ Estrutura de containers
+### 🛠️ Container Structure
 
 ```yaml
 services:
@@ -177,7 +177,7 @@ services:
     ports: [ "5000:5000" ]
     environment:
       - MONGO_URI=mongodb://mongo:27017/mernshop
-      - JWT_SECRET=sua_chave
+      - JWT_SECRET=your_secret
       - PORT=5000
 
   frontend:
@@ -189,15 +189,17 @@ services:
 
 ---
 
-### 🌐 Acessos rápidos
+### 🌐 Quick Access
 
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:5000/api/products
-- MongoDB: mongodb://localhost:27017 (via MongoDB Compass)
+- Frontend: http://localhost:5173  
+- Backend API: http://localhost:5000/api/products  
+- MongoDB: mongodb://localhost:27017 (via MongoDB Compass)  
 
 ---
 
-### 💡 Dicas
+### 💡 Tips
 
-- Se alterar código: `Ctrl + C` e `docker-compose up --build` novamente
-- Para limpar tudo: `docker-compose down -v`
+- After code changes: stop (`Ctrl + C`) and run `docker-compose up --build` again  
+- To clean everything: `docker-compose down -v`  
+
+---
